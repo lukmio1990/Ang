@@ -49,6 +49,8 @@ const startGame = (() => {
     clear();
     comment.textContent = "";
     result.textContent = `${score}/${game}`;
+    btnStart.classList.remove('click');
+    wordOne.focus();
 })
 
 
@@ -74,6 +76,7 @@ const solutionGame = ((e) => {
         solThree.textContent = perfect[task];
         comment.textContent = "Źle";
         comment.style.color = "red";
+        btnNext.classList.add('click');
     }
     game++;
     result.textContent = `${score}/${game}`;
@@ -84,6 +87,8 @@ const next = (() => {
     clear();
     clearSolution();
     word.textContent = pl[task];
+    btnNext.classList.remove('click');
+    wordOne.focus();
 })
 
 btnCheck.addEventListener("click", solutionGame);
