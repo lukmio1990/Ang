@@ -67,6 +67,7 @@ const solutionGame = ((e) => {
         word.textContent = pl[task];
         clear();
         clearSolution();
+        wordOne.focus();
     } else {
         solOne.textContent = bezokolicznik[task];
         solTwo.textContent = pastSimple[task];
