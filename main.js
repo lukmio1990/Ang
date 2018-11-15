@@ -36,7 +36,7 @@ const clear = (() => {
     solThree.textContent = "";
 
     inputs.forEach((input) => {
-        input.classList.remove('error');
+        input.className = "";
     })
 })
 
@@ -62,19 +62,22 @@ const checkAnswer = (() => {
     let three = wordThree.value
     if (one.toLowerCase() !== bezokolicznik[task].toLowerCase()) {
         wordOne.classList.add('error');
+    } else {
+        wordOne.classList.add('done');
     }
 
     if (two.toLowerCase() !== pastSimple[task].toLowerCase()) {
         wordTwo.classList.add('error');
+    } else {
+        wordTwo.classList.add('done');
     }
 
     if (three.toLowerCase() !== perfect[task].toLowerCase()) {
         wordThree.classList.add('error');
+    } else {
+        wordThree.classList.add('done');
     }
 })
-
-
-
 
 const solutionGame = ((e) => {
     e.preventDefault();
