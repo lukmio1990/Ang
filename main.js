@@ -5,6 +5,7 @@ const comment = document.querySelector('.comment');
 const wordOne = document.querySelector('input#wordOne');
 const wordTwo = document.querySelector('input#wordTwo');
 const wordThree = document.querySelector('input#wordThree');
+const inputs = document.querySelectorAll('input');
 //button
 const btnStart = document.querySelector('button.start');
 const btnCheck = document.querySelector('button.check');
@@ -30,13 +31,16 @@ const clear = (() => {
     wordOne.value = "";
     wordTwo.value = "";
     wordThree.value = "";
-})
-
-const clearSolution = (() => {
     solOne.textContent = "";
     solTwo.textContent = "";
     solThree.textContent = "";
+
+    inputs.forEach((input) => {
+        input.classList.remove('error');
+    })
 })
+
+
 
 const random = (() => {
     task = Math.floor(Math.random() * pl.length);
@@ -45,13 +49,31 @@ const random = (() => {
 const startGame = (() => {
     random();
     word.textContent = pl[task];
-    clearSolution();
     clear();
     comment.textContent = "";
     result.textContent = `${score}/${game}`;
     btnStart.classList.remove('click');
     wordOne.focus();
 })
+
+const checkAnswer = (() => {
+    let one = wordOne.value
+    let two = wordTwo.value
+    let three = wordThree.value
+    if (one.toLowerCase() !== bezokolicznik[task].toLowerCase()) {
+        wordOne.classList.add('error');
+    }
+
+    if (two.toLowerCase() !== pastSimple[task].toLowerCase()) {
+        wordTwo.classList.add('error');
+    }
+
+    if (three.toLowerCase() !== perfect[task].toLowerCase()) {
+        wordThree.classList.add('error');
+    }
+})
+
+
 
 
 const solutionGame = ((e) => {
@@ -68,7 +90,6 @@ const solutionGame = ((e) => {
         random();
         word.textContent = pl[task];
         clear();
-        clearSolution();
         wordOne.focus();
     } else {
         solOne.textContent = bezokolicznik[task];
@@ -77,6 +98,7 @@ const solutionGame = ((e) => {
         comment.textContent = "Źle";
         comment.style.color = "red";
         btnNext.classList.add('click');
+        checkAnswer();
     }
     game++;
     result.textContent = `${score}/${game}`;
@@ -85,7 +107,6 @@ const solutionGame = ((e) => {
 const next = (() => {
     random();
     clear();
-    clearSolution();
     word.textContent = pl[task];
     btnNext.classList.remove('click');
     wordOne.focus();
