@@ -86,15 +86,6 @@ header .btn {
   width: calc(100% - 10px);
 }
 
-input {
-  outline: none;
-  border: 0px;
-  height: 30px;
-  font-size: 20px;
-  width: 20%;
-  padding: 5px;
-}
-
 .panel {
   display: flex;
   align-items: center;
@@ -104,30 +95,49 @@ input {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 60%;
+  width: 70%;
   height: 60%;
-  /* border: 2px solid #081D77; */
   background-color: rgba(120, 120, 120, 0.5);
   box-shadow: 49px 49px 49px 49px rgba(0, 0, 0, 0.75);
 }
 
-button.start {
-  height: 40px;
-  width: 150px;
-  border: 0;
+.btn-start {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+  width: 165px;
   border-radius: 50px;
   font-family: arial;
-  font-size: 22px;
-  background-color: red;
-  margin-top: 20px;
-  box-shadow: 5px 5px 20px 0px rgba(223, 13, 13, 0.75);
+  padding: 7px;
+  background-color: #f27835;
+  text-transform: uppercase;
+  transition: background-color 0.5s;
 }
 
-button.start:hover {
-  background-color: #081d77;
-  color: red;
-  border: 1px solid red;
+.btn-start p {
+  font-size: 24px;
+  padding: 10px;
+}
+
+.circle-start {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35px;
+  width: 35px;
+  background-color: #f59965;
+  border-radius: 50px;
+  transition: background-color 0.5s;
+}
+
+.btn-start:hover {
+  background-color: #00afd1;
   cursor: pointer;
+}
+
+.btn-start:hover .circle-start {
+  background-color: rgb(0, 196, 236);
 }
 
 .word {
@@ -139,12 +149,20 @@ button.start:hover {
 }
 
 .word h1 {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
   height: 60px;
   width: 400px;
-  line-height: 60px;
   font-size: 32px;
-  background-color: rgba(0, 0, 0);
+  border: 1px solid black;
+  background-color: transparent;
+  transition: background-color 0.5s;
+}
+
+h1.active {
+  background-color: rgba(0, 146, 239, 0.6);
 }
 
 .score {
@@ -154,11 +172,39 @@ button.start:hover {
   height: 50%;
   width: 21%;
   font-size: 31px;
-  background-color: rgba(0, 0, 0, 0.6);
+  border: 1px solid black;
+  background-color: transparent;
+  overflow: hidden;
+  transition: background-color 0.5s;
+}
+
+.score.active {
+  background-color: rgba(0, 146, 239, 0.6);
 }
 
 .number {
+  transform: translateX(-100px);
   color: green;
+  opacity: 1;
+  transition: transform 0.3s, opacity 0.3s;
+}
+.number.active {
+  transform: translateX(0px);
+  opacity: 1;
+}
+
+input {
+  outline: none;
+  border: 0px;
+  height: 30px;
+  font-size: 20px;
+  width: 20%;
+  padding: 5px;
+}
+
+input::placeholder {
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .wrap-form {
@@ -171,6 +217,9 @@ button.start:hover {
 }
 
 form {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   width: 100%;
   height: 40%;
   margin: 15px auto;
@@ -228,27 +277,6 @@ button.next {
   text-align: center;
   font-size: 30px;
   color: black;
-}
-
-.click {
-  animation: click 0.6s infinite linear both;
-}
-
-@keyframes click {
-  0% {
-    background-color: red;
-    color: #081d77;
-  }
-
-  50% {
-    background-color: #081d77;
-    color: red;
-  }
-
-  100% {
-    background-color: red;
-    color: #081d77;
-  }
 }
 
 .error {

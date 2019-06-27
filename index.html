@@ -18,6 +18,7 @@
   <body>
     <div class="wrap">
       <div class="bg-wrap">
+        <!-- ----------------------HEADER------------------- -->
         <header>
           <h1>Irregular Verbs</h1>
           <div class="btn">
@@ -27,44 +28,50 @@
             </div>
           </div>
         </header>
+        <!-- -----------------HEADER--------------------- -->
+
+        <!-- MAIN PANNEL -->
         <div class="panel">
           <div class="word">
-            <button class="start click">Start</button>
+            <div class="btn-start">
+              <p>Start</p>
+              <div class="circle-start">
+                <i class="fas fa-play"></i>
+              </div>
+            </div>
+            <!-- <button class="start click">Start </button> -->
 
             <h1></h1>
             <div class="score">
-              <div class="number"></div>
+              <div class="number">0/0</div>
               <div class="comment"></div>
             </div>
           </div>
           <div class="wrap-form">
             <form action="">
-              <label for="wordOne"
-                >Pierwsza forma
-                <input
-                  type="text"
-                  name="wordOne"
-                  id="wordOne"
-                  autocomplete="off"
-              /></label>
+              <input
+                type="text"
+                name="wordOne"
+                id="wordOne"
+                autocomplete="off"
+                placeholder="invinitive"
+              />
 
-              <label for="wordTwo"
-                >Druga forma
-                <input
-                  type="text"
-                  name="wordTwo"
-                  id="wordTwo"
-                  autocomplete="off"
-              /></label>
+              <input
+                type="text"
+                name="wordTwo"
+                id="wordTwo"
+                autocomplete="off"
+                placeholder="past simple"
+              />
 
-              <label for="wordThree">
-                Trzecia forma
-                <input
-                  type="text"
-                  name="wordThree"
-                  id="wordThree"
-                  autocomplete="off"
-              /></label>
+              <input
+                type="text"
+                name="wordThree"
+                id="wordThree"
+                autocomplete="off"
+                placeholder="past participle"
+              />
             </form>
             <div class="wrap-button">
               <button class="check">Rozwiązanie</button>
