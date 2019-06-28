@@ -23,6 +23,8 @@ const solThree = document.querySelector("#three");
 let score = 0;
 let task;
 let game = 0;
+let start = false;
+
 btnStart.addEventListener("click", () => {
   contentBtn.textContent = "Reset";
   btnStartIcon.className = "fas fa-forward";
@@ -320,32 +322,33 @@ const random = () => {
 };
 
 const startGame = () => {
+  start = "true";
   random();
   word.textContent = pl[task];
   clear();
   comment.textContent = "";
-  result.textContent = `${score}/${game}`;
+  result.textContent = "0/0";
   btnStart.classList.remove("click");
   wordOne.focus();
 };
 
 const checkAnswer = () => {
-  let one = wordOne.value;
-  let two = wordTwo.value;
-  let three = wordThree.value;
-  if (one.toLowerCase() !== bezokolicznik[task].toLowerCase()) {
+  let one = wordOne.value.toLowerCase();
+  let two = wordTwo.value.toLowerCase();
+  let three = wordThree.value.toLowerCase();
+  if (one !== bezokolicznik[task].toLowerCase()) {
     wordOne.classList.add("error");
   } else {
     wordOne.classList.add("done");
   }
 
-  if (two.toLowerCase() !== pastSimple[task].toLowerCase()) {
+  if (two !== pastSimple[task].toLowerCase()) {
     wordTwo.classList.add("error");
   } else {
     wordTwo.classList.add("done");
   }
 
-  if (three.toLowerCase() !== perfect[task].toLowerCase()) {
+  if (three !== perfect[task].toLowerCase()) {
     wordThree.classList.add("error");
   } else {
     wordThree.classList.add("done");
@@ -372,9 +375,9 @@ const solutionGame = e => {
     clear();
     wordOne.focus();
   } else {
-    solOne.textContent = bezokolicznik[task];
-    solTwo.textContent = pastSimple[task];
-    solThree.textContent = perfect[task];
+    solOne.textContent = bezokolicznik[task].toLowerCase();
+    solTwo.textContent = pastSimple[task].toLowerCase();
+    solThree.textContent = perfect[task].toLowerCase();
     comment.textContent = "Źle";
     comment.style.color = "red";
     btnNext.classList.add("click");
@@ -385,13 +388,15 @@ const solutionGame = e => {
 };
 
 const next = () => {
-  random();
-  clear();
-  word.textContent = pl[task];
-  btnNext.classList.remove("click");
-  wordOne.focus();
+  if (start) {
+    random();
+    clear();
+    word.textContent = pl[task];
+    btnNext.classList.remove("click");
+    wordOne.focus();
+  }
 };
 
 btnCheck.addEventListener("click", solutionGame);
-btnStart.addEventListener("click", startGame);
 btnNext.addEventListener("click", next);
+btnStart.addEventListener("click", startGame);

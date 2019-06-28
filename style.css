@@ -158,6 +158,7 @@ header .btn-list {
 
 h1.active {
   background-color: rgba(0, 146, 239, 0.6);
+  border: 2px solid black;
 }
 
 .score {
@@ -175,6 +176,7 @@ h1.active {
 
 .score.active {
   background-color: rgba(0, 146, 239, 0.6);
+  border: 2px solid black;
 }
 
 .number {
@@ -221,7 +223,7 @@ input {
   border-radius: 50px;
   background-color: transparent;
   color: white;
-  transition: border 0.5s;
+  transition: background-color 0.3s;
 }
 label span {
   position: absolute;
@@ -236,7 +238,7 @@ label span {
 }
 
 input:focus {
-  border: 1px solid #f59965;
+  border: 2px solid #f59965;
 }
 
 input:focus + span {
@@ -272,6 +274,7 @@ i.fa-redo-alt {
   align-items: center;
   justify-content: center;
   width: 20%;
+  height: 50px;
   padding: 10px;
   border: 1px solid black;
   font-size: 30px;
@@ -281,14 +284,13 @@ i.fa-redo-alt {
 
 .solution.active {
   background-color: rgba(0, 146, 239, 0.6);
+  border: 2px solid black;
 }
 
 .error {
   background-color: red;
-  box-shadow: 0px 0px 10px 4px rgba(221, 14, 14, 0.75);
 }
 
 .done {
   background-color: green;
-  box-shadow: 0px 0px 10px 4px rgba(31, 156, 6, 0.75);
 }
