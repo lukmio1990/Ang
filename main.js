@@ -9,10 +9,12 @@ const wordOne = document.querySelector("input#wordOne");
 const wordTwo = document.querySelector("input#wordTwo");
 const wordThree = document.querySelector("input#wordThree");
 const inputs = document.querySelectorAll("input");
+//label
+const labels = document.querySelectorAll("label");
 //button
 const btnStart = document.querySelector(".btn-start");
-const btnCheck = document.querySelector("button.check");
-const btnNext = document.querySelector("button.next");
+const btnCheck = document.querySelector(".btn-check");
+const btnNext = document.querySelector(".btn-next");
 // rozwiązanie
 const solOne = document.querySelector("#one");
 const solTwo = document.querySelector("#two");
@@ -27,6 +29,9 @@ btnStart.addEventListener("click", () => {
   word.classList.add("active");
   result.classList.add("active");
   scoreWindow.classList.add("active");
+  solOne.classList.add("active");
+  solTwo.classList.add("active");
+  solThree.classList.add("active");
 });
 
 let pl = [

@@ -34,7 +34,7 @@ header h1 {
   font-size: 40px;
 }
 
-header .btn {
+header .btn-list {
   position: absolute;
   display: flex;
   justify-content: space-between;
@@ -50,14 +50,14 @@ header .btn {
   cursor: pointer;
 }
 
-.btn p {
+.btn-list p {
   font-size: 19px;
   text-transform: uppercase;
   padding: 5px;
   z-index: 999;
 }
 
-.btn .circle-icon {
+.btn-list .circle-icon {
   position: absolute;
   top: 50%;
   right: 5px;
@@ -77,12 +77,11 @@ header .btn {
   top: 50%;
   right: 9px;
   transform: translateY(-50%);
-
   font-size: 35px;
   color: white;
 }
 
-.btn:hover .circle-icon {
+.btn-list:hover .circle-icon {
   width: calc(100% - 10px);
 }
 
@@ -91,22 +90,18 @@ header .btn {
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  margin: 80px auto;
   width: 70%;
   height: 60%;
   background-color: rgba(120, 120, 120, 0.5);
   box-shadow: 49px 49px 49px 49px rgba(0, 0, 0, 0.75);
 }
 
-.btn-start {
+.btn {
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 50px;
-  width: 165px;
   border-radius: 50px;
   font-family: arial;
   padding: 7px;
@@ -115,7 +110,7 @@ header .btn {
   transition: background-color 0.5s;
 }
 
-.btn-start p {
+.btn p {
   font-size: 24px;
   padding: 10px;
 }
@@ -131,12 +126,12 @@ header .btn {
   transition: background-color 0.5s;
 }
 
-.btn-start:hover {
+.btn:hover {
   background-color: #00afd1;
   cursor: pointer;
 }
 
-.btn-start:hover .circle-start {
+.btn:hover .circle-start {
   background-color: rgb(0, 196, 236);
 }
 
@@ -184,27 +179,13 @@ h1.active {
 
 .number {
   transform: translateX(-100px);
-  color: green;
+  color: black;
   opacity: 1;
   transition: transform 0.3s, opacity 0.3s;
 }
 .number.active {
   transform: translateX(0px);
   opacity: 1;
-}
-
-input {
-  outline: none;
-  border: 0px;
-  height: 30px;
-  font-size: 20px;
-  width: 20%;
-  padding: 5px;
-}
-
-input::placeholder {
-  text-align: center;
-  text-transform: uppercase;
 }
 
 .wrap-form {
@@ -226,38 +207,55 @@ form {
 }
 
 label {
-  font-size: 18px;
+  position: relative;
+  width: 28%;
+}
+
+input {
+  outline: none;
+  border: 1px solid rgb(0, 146, 239);
+  height: 50px;
+  font-size: 25px;
+  width: 100%;
+  padding: 0 0 0 30px;
+  border-radius: 50px;
+  background-color: transparent;
+  color: white;
+  transition: border 0.5s;
+}
+label span {
+  position: absolute;
+  top: 50%;
+  left: 35px;
+  transform: translateY(-50%);
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #f59965;
+  transform: translateY(-47px) scale(1.3);
+  transition: color 0.5s;
+}
+
+input:focus {
+  border: 1px solid #f59965;
+}
+
+input:focus + span {
+  color: rgb(0, 146, 239);
 }
 
 .wrap-button {
   display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 40%;
 }
 
-button.check {
-  height: 40px;
-  width: 150px;
-  border: 0;
-  border-radius: 50px;
-  font-family: arial;
-  font-size: 22px;
-  background-color: red;
-  margin-top: 10px;
-  box-shadow: 5px 5px 20px 0px rgba(223, 13, 13, 0.75);
-  cursor: pointer;
+i.fa-redo-alt {
+  transition: transform 0.3s;
 }
 
-button.next {
-  height: 40px;
-  width: 150px;
-  border: 0;
-  border-radius: 50px;
-  font-family: arial;
-  font-size: 22px;
-  background-color: red;
-  margin-top: 10px;
-  box-shadow: 5px 5px 20px 0px rgba(223, 13, 13, 0.75);
-  margin-left: 20px;
-  cursor: pointer;
+.btn:hover i.fa-redo-alt {
+  transform: rotate(100deg);
 }
 
 .correct {
@@ -270,13 +268,19 @@ button.next {
 }
 
 .solution {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 20%;
-  height: 60px;
-  background-color: rgba(223, 13, 13, 0.75);
-  line-height: 60px;
-  text-align: center;
+  padding: 10px;
+  border: 1px solid black;
   font-size: 30px;
   color: black;
+  transition: background-color 0.3s;
+}
+
+.solution.active {
+  background-color: rgba(0, 146, 239, 0.6);
 }
 
 .error {
@@ -287,11 +291,4 @@ button.next {
 .done {
   background-color: green;
   box-shadow: 0px 0px 10px 4px rgba(31, 156, 6, 0.75);
-}
-
-img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 5%;
 }

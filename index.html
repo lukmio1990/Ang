@@ -21,7 +21,7 @@
         <!-- ----------------------HEADER------------------- -->
         <header>
           <h1>Irregular Verbs</h1>
-          <div class="btn">
+          <div class="btn-list">
             <p class="content">Lista słówek</p>
             <div class="circle-icon">
               <i class="fas fa-angle-down"></i>
@@ -33,7 +33,7 @@
         <!-- MAIN PANNEL -->
         <div class="panel">
           <div class="word">
-            <div class="btn-start">
+            <div class=" btn btn-start">
               <p>Start</p>
               <div class="circle-start">
                 <i class="fas fa-play"></i>
@@ -49,33 +49,51 @@
           </div>
           <div class="wrap-form">
             <form action="">
-              <input
-                type="text"
-                name="wordOne"
-                id="wordOne"
-                autocomplete="off"
-                placeholder="invinitive"
-              />
+              <label for="wordOne">
+                <input
+                  type="text"
+                  name="wordOne"
+                  id="wordOne"
+                  autocomplete="off"
+                />
+                <span>Pierwszy</span>
+              </label>
 
-              <input
-                type="text"
-                name="wordTwo"
-                id="wordTwo"
-                autocomplete="off"
-                placeholder="past simple"
-              />
+              <label for="wordTwo">
+                <input
+                  type="text"
+                  name="wordTwo"
+                  id="wordTwo"
+                  autocomplete="off"
+                />
+                <span>past simple</span>
+              </label>
 
-              <input
-                type="text"
-                name="wordThree"
-                id="wordThree"
-                autocomplete="off"
-                placeholder="past participle"
-              />
+              <label for="wordThree">
+                <input
+                  type="text"
+                  name="wordThree"
+                  id="wordThree"
+                  autocomplete="off"
+                />
+                <span>past participle</span>
+              </label>
             </form>
+
             <div class="wrap-button">
-              <button class="check">Rozwiązanie</button>
-              <button class="next">Dalej</button>
+              <div class="btn btn-check">
+                <p>sprawdź</p>
+                <div class="circle-start">
+                  <i class="fas fa-check"></i>
+                </div>
+              </div>
+
+              <div class="btn btn-next">
+                <p>Dalej</p>
+                <div class="circle-start">
+                  <i class="fas fa-redo-alt"></i>
+                </div>
+              </div>
             </div>
           </div>
           <div class="correct">
