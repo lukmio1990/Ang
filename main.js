@@ -24,6 +24,7 @@ let score = 0;
 let task;
 let game = 0;
 let start = false;
+let flag = false;
 
 btnStart.addEventListener("click", () => {
   contentBtn.textContent = "Reset";
@@ -400,3 +401,26 @@ const next = () => {
 btnCheck.addEventListener("click", solutionGame);
 btnNext.addEventListener("click", next);
 btnStart.addEventListener("click", startGame);
+
+// LISTA SŁÓW
+
+// PL
+const plLeftColumn = document.querySelector(".pl-left > ul");
+const plRightColumn = document.querySelector(".pl-right > ul");
+let counterPl = 0;
+
+//INVINITIVE
+
+pl.map(item => {
+  if (counterPl < 32) {
+    const word = document.createElement("li");
+    word.textContent = item;
+    plLeftColumn.appendChild(word);
+    counterPl++;
+  } else {
+    const word = document.createElement("li");
+    word.textContent = item;
+    plRightColumn.appendChild(word);
+    counterPl++;
+  }
+});
