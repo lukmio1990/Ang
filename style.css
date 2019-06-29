@@ -303,7 +303,7 @@ i.fa-redo-alt {
   display: flex;
   justify-content: space-between;
   top: 10vh;
-  right: 0;
+  right: -100vw;
   /* height: 90vh; */
   width: 95vw;
   background-color: red;
