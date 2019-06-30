@@ -334,9 +334,9 @@ const startGame = () => {
 };
 
 const checkAnswer = () => {
-  let one = wordOne.value.toLowerCase();
-  let two = wordTwo.value.toLowerCase();
-  let three = wordThree.value.toLowerCase();
+  let one = wordOne.value.toLowerCase().trim();
+  let two = wordTwo.value.toLowerCase().trim();
+  let three = wordThree.value.toLowerCase().trim();
   if (one !== bezokolicznik[task].toLowerCase()) {
     wordOne.classList.add("error");
   } else {
@@ -359,9 +359,9 @@ const checkAnswer = () => {
 const solutionGame = e => {
   e.preventDefault();
   console.log("działa");
-  let one = wordOne.value;
-  let two = wordTwo.value;
-  let three = wordThree.value;
+  let one = wordOne.value.trim();
+  let two = wordTwo.value.trim();
+  let three = wordThree.value.trim();
 
   if (
     one.toLowerCase() === bezokolicznik[task].toLowerCase() &&
@@ -404,12 +404,19 @@ btnStart.addEventListener("click", startGame);
 
 // LISTA SŁÓW
 
+// SLIDE
+const listWords = document.querySelector(".words-list-wrap");
+const btnList = document
+  .querySelector(".btn-list")
+  .addEventListener("click", () => {
+    console.log("działa");
+    listWords.classList.toggle("active");
+  });
+
 // PL
 const plLeftColumn = document.querySelector(".pl-left > ul");
 const plRightColumn = document.querySelector(".pl-right > ul");
 let counterPl = 0;
-
-//INVINITIVE
 
 pl.map(item => {
   if (counterPl < 32) {
@@ -422,5 +429,25 @@ pl.map(item => {
     word.textContent = item;
     plRightColumn.appendChild(word);
     counterPl++;
+  }
+});
+
+// INFINITIVE
+
+const invinitiveLeftColumn = document.querySelector(".infinitive-left > ul");
+const invinitiveRightColumn = document.querySelector(".infinitive-right > ul");
+let counterInvinitive = 0;
+
+bezokolicznik.map(item => {
+  if (counterInvinitive < 32) {
+    const word = document.createElement("li");
+    word.textContent = item;
+    invinitiveLeftColumn.appendChild(word);
+    counterInvinitive++;
+  } else {
+    const word = document.createElement("li");
+    word.textContent = item;
+    invinitiveRightColumn.appendChild(word);
+    counterInvinitive++;
   }
 });
