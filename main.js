@@ -99,7 +99,7 @@ let pl = [
   "Myśleć",
   "Rozumieć",
   "Budzić się",
-  "Nosić/ubierać/mieć na sobie",
+  "Nosić/ubierać",
   "Wygrywać/zwyciężać",
   "Pisać"
 ];
@@ -405,12 +405,14 @@ btnStart.addEventListener("click", startGame);
 // LISTA SŁÓW
 
 // SLIDE
-const listWords = document.querySelector(".words-list-wrap");
+const leftList = document.querySelector(".left-side");
+const rightList = document.querySelector(".right-side");
 const btnList = document
   .querySelector(".btn-list")
   .addEventListener("click", () => {
     console.log("działa");
-    listWords.classList.toggle("active");
+    leftList.classList.toggle("active");
+    rightList.classList.toggle("active");
   });
 
 // PL
@@ -421,12 +423,12 @@ let counterPl = 0;
 pl.map(item => {
   if (counterPl < 32) {
     const word = document.createElement("li");
-    word.textContent = item;
+    word.textContent = item.toLowerCase();
     plLeftColumn.appendChild(word);
     counterPl++;
   } else {
     const word = document.createElement("li");
-    word.textContent = item;
+    word.textContent = item.toLowerCase();
     plRightColumn.appendChild(word);
     counterPl++;
   }
@@ -449,5 +451,49 @@ bezokolicznik.map(item => {
     word.textContent = item;
     invinitiveRightColumn.appendChild(word);
     counterInvinitive++;
+  }
+});
+
+//PAST SIMPLE
+
+const pastSimpleLeftColumn = document.querySelector(".past-simple-left > ul");
+const pastSimpleRightColumn = document.querySelector(".past-simple-right > ul");
+let counterPastSimple = 0;
+
+pastSimple.map(item => {
+  if (counterPastSimple < 32) {
+    const word = document.createElement("li");
+    word.textContent = item;
+    pastSimpleLeftColumn.appendChild(word);
+    counterPastSimple++;
+  } else {
+    const word = document.createElement("li");
+    word.textContent = item;
+    pastSimpleRightColumn.appendChild(word);
+    counterPastSimple++;
+  }
+});
+
+//PAST PARTICIPLE
+
+const pastParticipleLeftColumn = document.querySelector(
+  ".past-participle-left > ul"
+);
+const pastParticipleRightColumn = document.querySelector(
+  ".past-participle-right > ul"
+);
+let counterPastParticiple = 0;
+
+perfect.map(item => {
+  if (counterPastParticiple < 32) {
+    const word = document.createElement("li");
+    word.textContent = item.toLowerCase();
+    pastParticipleLeftColumn.appendChild(word);
+    counterPastParticiple++;
+  } else {
+    const word = document.createElement("li");
+    word.textContent = item.toLowerCase();
+    pastParticipleRightColumn.appendChild(word);
+    counterPastParticiple++;
   }
 });
