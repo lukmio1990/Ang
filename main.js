@@ -410,9 +410,20 @@ const rightList = document.querySelector(".right-side");
 const btnList = document
   .querySelector(".btn-list")
   .addEventListener("click", () => {
-    console.log("działa");
-    leftList.classList.toggle("active");
-    rightList.classList.toggle("active");
+    if (
+      !leftList.classList.contains("active") ||
+      !rightList.classList.contains("active")
+    ) {
+      leftList.classList.add("active");
+      rightList.classList.add("active");
+      leftList.classList.remove("inactive");
+      rightList.classList.remove("inactive");
+    } else {
+      leftList.classList.remove("active");
+      rightList.classList.remove("active");
+      leftList.classList.add("inactive");
+      rightList.classList.add("inactive");
+    }
   });
 
 // PL
